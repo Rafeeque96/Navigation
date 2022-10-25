@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+/* Reset */
+/* ------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+/* Global */
+/* ------------------------------------------------------ */
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+.is-flex {
+  display: flex;
+}
+
+
+/* Styles */
+/* ------------------------------------------------------ */
+header {
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+}
+
+.menu--nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: brown;
+  padding: 100px;
+  transform: translateX(100%);
+  /* animation: slideIn 3000ms forwards ease 2000ms; */
+  /* transition: transform ease 0.5s; */
+}
+/* .menu--nav.active{
+  transform: translateY(0);
+} */
+
+
+.menu--nav ul {
+  flex-direction: column;
+  height: calc(100% - 200px);
+  justify-content: space-between;
+}
+
+.menu--nav ul li {
+  opacity: 0;
+  width: 35%;
+}
+
+.menu--nav li a {
+  color: white;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+
+/* Hamburger */
+/* ------------------------------------------------------ */
+.menu--hamburger {
+  cursor: pointer;
+  width: 30px;
+  height: 40px;
+  position: fixed;
+  z-index: 999;
+}
+
+.menu--hamburger span {
+  width: 20px;
+  height: 2px;
+  display: inline-block;
+  background-color: black;
+  position: relative;
+
+}
+
+.menu--hamburger span::after,
+.menu--hamburger span::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  display: block;
+  background-color: black;
+  transition: transform ease 0.5s;
+}
+
+.menu--hamburger span::after {
+  transform: translateY(10px);
+}
+
+.menu--hamburger span::before {
+  transform: translateY(-10px);
+}
+
+/* Hamburger active state */
+/* ------------------------------------------------------ */
+.menu--hamburger.active span::after,
+.menu--hamburger.active span::before {
+  background-color: white;
+}
+
+.menu--hamburger.active span {
+  background-color: white;
+}
+
+.menu--hamburger.active span::after {
+  transform: translateY(0px);
+}
+
+.menu--hamburger.active span::before {
+  transform: translateY(0px);
+}
+
+/* Menu Images */
+/* ------------------------------------------------------ */
+.menu--img-wrapper {
+    position: absolute;
+    right: 0;
+  }
+  
+  .menu--img-wrapper::before {
+    content: "";
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-image: radial-gradient(#ffffff 0.5px, brown 0.5px);
+    background-size: 10px 10px;
+    position: absolute;
+    right: 100px;
+    top: 80px;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .menu--img-wrapper img {
+    width: 60vw;
+    height: 80vh;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+  
+
+/* Keyframes animations (Global) */
+/* ------------------------------------------------------ */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(70%);
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(70%);
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  }
+}
+
